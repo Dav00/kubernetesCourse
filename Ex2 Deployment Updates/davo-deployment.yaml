@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: davo-mysql-deployment
+ labels:
+  app-use: bbdd
+  env: test
+spec:
+ replicas: 3
+ selector:
+  matchLabels:
+    app-use: bbdd
+    env: test
+ template:
+   metadata: 
+    name: mysql-davo-test
+    labels:
+     app-use: bbdd
+     env: test
+   spec: 
+    containers: 
+     -  image: mysql:5
+        name: mysql-davo

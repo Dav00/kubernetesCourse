@@ -1,0 +1,14 @@
+#Pods with YAML based config file.
+#Required Fields:
+#Version of Kubernetes API
+apiVersion: v1
+kind: Pod
+metadata:
+ name: nginx-davo   
+ labels:
+   app: davo-app
+   type: backend
+spec: 
+ containers:
+   - name: nginx
+     image: nginx

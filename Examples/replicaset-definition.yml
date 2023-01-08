@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+
+kind: ReplicaSet
+
+metadata: 
+ name: replicaSet-example
+ labels:
+  app: replicaSet-example-app
+  type: backend
+
+spec: 
+ - template:
+    metadata: 
+     name: nginx-2
+     labels:
+      env: production
+    spec:
+     containers:
+      - name: nginx
+        image: nginx
+      - name: redis
+        image: redis123
+replicas: 3
+selector: 
+  matchLabels:
+   type: backend
